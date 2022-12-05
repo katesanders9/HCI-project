@@ -6,6 +6,7 @@
 <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
 <script src="graphs.js"></script>
 <script src="data.js"></script>
+<script src="text.js"></script>
 
 <style>
 	body {
@@ -81,7 +82,7 @@ rect.disabled {
 <body>
 	<h1 style="text-align:center">HCI Project 2: Design for Justice and Accessibility</h1>
 	<h3 style="text-align:center">Taryn Wong, Peter Novello, Yiyang Han, Kate Sanders</h3>
-	<p style="text-align:center">Introduction goes here</p>
+	<p id="intro" style="text-align:center">Introduction goes here</p>
 	<div id="column1">
 	<h3>Pie chart with tooltips and check/uncheckable legend squares</h3>
 	<div id="pieTool"></div>
@@ -111,6 +112,8 @@ rect.disabled {
 </body>
 
 <script>
+	var headercontent = document.getElementById("intro");
+	headercontent.innerHTML = text[0].description;
 
 pieTool("#pieTool");
 
