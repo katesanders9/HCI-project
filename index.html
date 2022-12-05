@@ -96,9 +96,10 @@ rect.disabled {
 
 	<h3 id="title_E" style="text-align:center"></h3>
 	<p id="desc_E" style="text-align:center"></p>
-	<button onclick="updateBar(d18, barMetadata)">2018</button>
-	<button onclick="updateBar(d19, barMetadata)">2019</button>
-	<button onclick="updateBar(d20, barMetadata)">2020</button>
+	<p id="barExtra" style="text-align:center;font-weight:bold">Total: </p>
+	<button onclick="updateBar(d18, barMetadata, '2018')">2018</button>
+	<button onclick="updateBar(d19, barMetadata, '2019')">2019</button>
+	<button onclick="updateBar(d20, barMetadata, '2020')">2020</button>
 	<div id="bar"></div>
 	<br><br><br>
 
@@ -192,7 +193,7 @@ hist("#hist");
 scatterGroup("#scatter");
 
 var barMetadata = barGraph("#bar", "a");
-updateBar(d18, barMetadata);
+updateBar(d18, barMetadata, '2018');
 
 stackedBar("#stacked", "b");
 

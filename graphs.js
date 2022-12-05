@@ -37,7 +37,7 @@ function barGraph(div, id) {
 
 
 /// A function that create / update the plot for a given variable:
-function updateBar(data, t) {
+function updateBar(data, t, val) {
 
   var svg = t[0];
   var x = t[1];
@@ -47,6 +47,8 @@ function updateBar(data, t) {
 
   var u = svg.selectAll("rect[id='a']")
     .data(data)
+
+  d3.selectAll("#barExtra").html(val + " Average: " + parseInt(d3.mean(data, d => d.value)));
 
   u
     .enter()
