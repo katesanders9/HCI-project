@@ -82,38 +82,94 @@ rect.disabled {
 <body>
 	<h1 style="text-align:center">HCI Project 2: Design for Justice and Accessibility</h1>
 	<h3 style="text-align:center">Taryn Wong, Peter Novello, Yiyang Han, Kate Sanders</h3>
-	<p id="intro" style="text-align:center">Introduction goes here</p>
+	<p id="intro" style="text-align:center"></p>
 	<div id="column1">
 	<h3>Pie chart with tooltips and check/uncheckable legend squares</h3>
+	<h3 id="title_A" style="text-align:center"></h3>
+	<p id="desc_A" style="text-align:center"></p>
 	<div id="pieTool"></div>
 		<h3>Line graph with multiple variables</h3>
+		<h3 id="title_B" style="text-align:center"></h3>
+	<p id="desc_B" style="text-align:center"></p>
 	<select id="lineselectButton"></select>
 	<div id="line"></div>
 	<h3>Histogram with variable # of bins</h3>
+	<h3 id="title_C" style="text-align:center"></h3>
+	<p id="desc_C" style="text-align:center"></p>
 	<div id="hist"></div>
 	<p>
   	<label># bins</label>
   	<input type="number" min="1" max="100" step="30" value="20" id="nBin">
 	</p>
 	<h3>Group-based scatterplot with hover</h3>
+	<h3 id="title_D" style="text-align:center"></h3>
+	<p id="desc_D" style="text-align:center"></p>
 	<div id="scatter"></div>
 </div><div id="column1">
 	<h3>Bar graph with multiple y-values</h3>
+	<h3 id="title_E" style="text-align:center"></h3>
+	<p id="desc_E" style="text-align:center"></p>
 	<button onclick="updateBar(data1, barMetadata)">Variable 1</button>
 	<button onclick="updateBar(data2, barMetadata)">Variable 2</button>
 	<div id="bar"></div>
 	<h3>Choropleth map with hover</h3>
+	<h3 id="title_F" style="text-align:center"></h3>
+	<p id="desc_F" style="text-align:center"></p>
 	<svg id="choroH" width="400" height="300"></svg>
 	<h3>Scatterplot with tooltips</h3>
+	<h3 id="title_G" style="text-align:center"></h3>
+	<p id="desc_G" style="text-align:center"></p>
 	<div id="scatterH"></div>
 		<h3>Stacked bar graph with tooltips</h3>
+		<h3 id="title_H" style="text-align:center"></h3>
+	<p id="desc_H" style="text-align:center"></p>
 	<div id="stacked"></div>
 </div>
 </body>
 
 <script>
-	var headercontent = document.getElementById("intro");
-	headercontent.innerHTML = text[0].description;
+	var content = document.getElementById("intro");
+	content.innerHTML = text[0].description;
+
+	var content = document.getElementById("title_A");
+	content.innerHTML = text[1].title;
+	var content = document.getElementById("desc_A");
+	content.innerHTML = text[1].description;
+
+	var content = document.getElementById("title_B");
+	content.innerHTML = text[2].title;
+	var content = document.getElementById("desc_B");
+	content.innerHTML = text[2].description;
+
+	var content = document.getElementById("title_C");
+	content.innerHTML = text[3].title;
+	var content = document.getElementById("desc_C");
+	content.innerHTML = text[3].description;
+
+	var content = document.getElementById("title_D");
+	content.innerHTML = text[4].title;
+	var content = document.getElementById("desc_D");
+	content.innerHTML = text[4].description;
+
+	var content = document.getElementById("title_E");
+	content.innerHTML = text[5].title;
+	var content = document.getElementById("desc_E");
+	content.innerHTML = text[5].description;
+
+	var content = document.getElementById("title_F");
+	content.innerHTML = text[6].title;
+	var content = document.getElementById("desc_F");
+	content.innerHTML = text[6].description;
+
+	var content = document.getElementById("title_G");
+	content.innerHTML = text[7].title;
+	var content = document.getElementById("desc_G");
+	content.innerHTML = text[7].description;
+
+	var content = document.getElementById("title_H");
+	content.innerHTML = text[8].title;
+	var content = document.getElementById("desc_H");
+	content.innerHTML = text[8].description;
 
 pieTool("#pieTool");
 

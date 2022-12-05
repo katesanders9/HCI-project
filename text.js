@@ -1,4 +1,9 @@
-var text = [{
+var text = [
+	{
+    "title": "Introduction",
+    "description": "Introduction goes here."
+  },
+	{
     "title": "Graph A",
     "description": "Description for graph A goes here."
   }, {
@@ -20,5 +25,13 @@ var text = [{
   {
     "title": "Graph F",
     "description": "Description for graph F goes here."
+  },
+  {
+    "title": "Graph g",
+    "description": "Description for graph G goes here."
+  },
+  {
+    "title": "Graph H",
+    "description": "Description for graph H goes here."
   },
   ]
