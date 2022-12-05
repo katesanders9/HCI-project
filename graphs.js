@@ -25,7 +25,7 @@ function barGraph(div, id) {
 
   // Add Y axis
   var y1 = d3.scaleLinear()
-    .domain([0, 20])
+    .domain([0, 75])
     .range([ height1, 0]);
   svg1.append("g")
     .attr("class", "myYaxis")
@@ -490,45 +490,70 @@ function choroHover(div) {
 // Map and projection
 var path = d3.geoPath();
 var projection = d3.geoMercator()
-  .scale(70)
-  .center([0,20])
+  .scale(140000)
+  .center([-76.61,39.28])
   .translate([width / 2, height / 2]);
 
 // Data and color scale
 var data = d3.map();
 var colorScale = d3.scaleThreshold()
-  .domain([100000, 1000000, 10000000, 30000000, 100000000, 500000000])
+  .domain([1, 1, 1, 70, 75, 80])
   .range(d3.schemeBlues[7]);
 
 // Load external data and boot
 d3.queue()
-  .defer(d3.json, "https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson")
-  .defer(d3.csv, "https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world_population.csv", function(d) { data.set(d.code, +d.pop); })
+  .defer(d3.json, "https://raw.githubusercontent.com/katesanders9/HCI-project/master/new.geojson")
+  .defer(d3.csv, "https://raw.githubusercontent.com/katesanders9/HCI-project/master/Life_Expectancy.csv", function(d) { data.set(d.OBJECTID, +d.lifexp11); })
   .await(ready);
 
 function ready(error, topo) {
 
-  let mouseOver = function(d) {
-    d3.selectAll(".Country")
+  var tooltip = d3.select("body")
+    .append("div")
+    .attr("class", "tooltip2")
+    .style("width", 200 +"px");
+  var area = d3.select("#asdf")
+    .append("div")
+    .html("Hover over the map to see details")
+    .style("font-weight", "normal");
+
+    var mouseover = function(d) {
+    tooltip
+      .style('display', 'block');
+          d3.selectAll(".Country")
       .transition()
       .duration(200)
-      .style("opacity", .5)
+      .style("opacity", .5);
     d3.select(this)
       .transition()
       .duration(200)
-      .style("opacity", 1)
-      .style("stroke", "black")
+      .style("opacity", 1);
   }
 
-  let mouseLeave = function(d) {
-    d3.selectAll(".Country")
+    var mousemove = function(d) {
+      area
+        .html(d.properties.CSA2010)
+        .style("font-weight", "bold");
+      tooltip
+          .html("Life expectancy: " + parseInt(data.get(d.id)))
+          .style('top', (d3.event.layerY + 10) + 'px') // always 10px below the cursor
+    .style('left', (d3.event.layerX + 10) + 'px'); // always 10px to the right of the mouse
+    }
+
+  var mouseleave = function(d) {
+    area
+      .html("Hover over the map to see details")
+      .style("font-weight", "normal");
+      tooltip
+        .style('display', 'none');
+            d3.selectAll(".Country")
       .transition()
       .duration(200)
-      .style("opacity", .8)
+      .style("opacity", .8);
     d3.select(this)
       .transition()
       .duration(200)
-      .style("stroke", "transparent")
+      .style("stroke", "transparent");
   }
 
   // Draw the map
@@ -543,14 +568,15 @@ function ready(error, topo) {
       )
       // set the color of each country
       .attr("fill", function (d) {
-        d.total = data.get(d.id) || 0;
+      d.total = data.get(d.id) || 0;
         return colorScale(d.total);
       })
       .style("stroke", "transparent")
       .attr("class", function(d){ return "Country" } )
       .style("opacity", .8)
-      .on("mouseover", mouseOver )
-      .on("mouseleave", mouseLeave )
+      .on("mouseover", mouseover )
+      .on("mousemove", mousemove )
+      .on("mouseleave", mouseleave );
     }
 }
 

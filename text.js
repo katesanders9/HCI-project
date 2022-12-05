@@ -20,7 +20,7 @@ var text = [
   },
   {
     "title": "Graph E",
-    "description": "Description for graph E goes here."
+    "description": "Data from datausa.io/profile/geo/baltimore-city-md"
   },
   {
     "title": "Graph F",

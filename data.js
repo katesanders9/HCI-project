@@ -1,27 +1,43 @@
 var data1 = [{
-    "group": "A",
-    "value": 12
+    "group": "Black",
+    "value": 61.6
 },
 {
-    "group": "B",
-    "value": 8
+    "group": "White",
+    "value": 27.3
 },
 {
-    "group": "C",
+    "group": "Multiracial",
+    "value": 2.6
+},
+{
+    "group": "Asian",
+    "value": 2.5
+},
+{
+    "group": "Other",
     "value": 6
 }];
 
 var data2 = [{
-    "group": "A",
-    "value": 4
+    "group": "Black",
+    "value": 72.1
 },
 {
-    "group": "B",
-    "value": 8
+    "group": "White",
+    "value": 16.8
 },
 {
-    "group": "C",
-    "value": 5
+    "group": "Multiracial",
+    "value": 2
+},
+{
+    "group": "Asian",
+    "value": 2
+},
+{
+    "group": "Other",
+    "value": 7
 }];
 
 

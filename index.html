@@ -60,7 +60,7 @@ rect.disabled {
   text-align: center;
   top: 95px;
   width: 80px;
-  z-index: 10;
+  z-index: 10000;
 }
 
 .footer {
@@ -83,6 +83,13 @@ rect.disabled {
 	<h1 style="text-align:center">HCI Project 2: Design for Justice and Accessibility</h1>
 	<h3 style="text-align:center">Taryn Wong, Peter Novello, Yiyang Han, Kate Sanders</h3>
 	<p id="intro" style="text-align:center"></p>
+	<div style="width:100%">
+		<h3>Choropleth map with hover</h3>
+	<h3 id="title_F" style="text-align:center"></h3>
+	<p id="desc_F" style="text-align:center"></p>
+	<p id="asdf" style="text-align:center"></p>
+	<svg id="choroH" width="800" height="600"></svg>
+</div>
 	<div id="column1">
 	<h3>Pie chart with tooltips and check/uncheckable legend squares</h3>
 	<h3 id="title_A" style="text-align:center"></h3>
@@ -109,13 +116,9 @@ rect.disabled {
 	<h3>Bar graph with multiple y-values</h3>
 	<h3 id="title_E" style="text-align:center"></h3>
 	<p id="desc_E" style="text-align:center"></p>
-	<button onclick="updateBar(data1, barMetadata)">Variable 1</button>
-	<button onclick="updateBar(data2, barMetadata)">Variable 2</button>
+	<button onclick="updateBar(data1, barMetadata)">% of Population</button>
+	<button onclick="updateBar(data2, barMetadata)">% of Pop. in Poverty</button>
 	<div id="bar"></div>
-	<h3>Choropleth map with hover</h3>
-	<h3 id="title_F" style="text-align:center"></h3>
-	<p id="desc_F" style="text-align:center"></p>
-	<svg id="choroH" width="400" height="300"></svg>
 	<h3>Scatterplot with tooltips</h3>
 	<h3 id="title_G" style="text-align:center"></h3>
 	<p id="desc_G" style="text-align:center"></p>
