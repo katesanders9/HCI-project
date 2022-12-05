@@ -575,6 +575,92 @@ function ready(error, topo) {
 
 
 
+function choroHover2(div) {
+  var svg = d3.select(div),
+  width = +svg.attr("width"),
+  height = +svg.attr("height");
+
+// Map and projection
+var path = d3.geoPath();
+var projection = d3.geoMercator()
+  .scale(140000)
+  .center([-76.61,39.28])
+  .translate([width / 2, height / 2]);
+
+// Data and color scale
+var data = d3.map();
+var colorScale = d3.scaleThreshold()
+  .domain([0, 1, 2, 4, 6, 8])
+  .range(d3.schemeBlues[7]);
+
+// Load external data and boot
+  d3.queue()
+  .defer(d3.json, "https://raw.githubusercontent.com/katesanders9/HCI-project/master/new.geojson")
+  .defer(d3.csv, "https://raw.githubusercontent.com/katesanders9/HCI-project/master/SNAP.csv", function(d) { data.set(d.OBJECTID, +d.snap19); })
+  .await(ready);
+
+
+function ready(error, topo) {
+
+  var tooltip = d3.select("body")
+    .append("div")
+    .attr("class", "tooltip2")
+    .style("width", 120 +"px");
+  var area = d3.select("#asdfg")
+    .append("div")
+    .html("Location:")
+    .style("font-weight", "normal");
+
+    var mouseover = function(d) {
+    tooltip
+      .style('display', 'block');
+
+  }
+
+    var mousemove = function(d) {
+      area
+        .html("Location: " + d.properties.CSA2010)
+        .style("font-weight", "bold");
+      tooltip
+          .html(parseInt(data.get(d.id)) + " years")
+          .style('top', (d3.event.layerY + 10) + 'px') // always 10px below the cursor
+    .style('left', (d3.event.layerX + 10) + 'px'); // always 10px to the right of the mouse
+    }
+
+  var mouseleave = function(d) {
+    area
+      .html("Location:")
+      .style("font-weight", "normal");
+      tooltip
+        .style('display', 'none');
+  }
+
+  // Draw the map
+  svg.append("g")
+    .selectAll("path")
+    .data(topo.features)
+    .enter()
+    .append("path")
+      // draw each country
+      .attr("d", d3.geoPath()
+        .projection(projection)
+      )
+      // set the color of each country
+      .attr("fill", function (d) {
+      d.total = data.get(d.id) || 0;
+        return colorScale(d.total);
+      })
+      .style("stroke", "transparent")
+      .attr("class", function(d){ return "Country" } )
+      .style("opacity", .8)
+      .on("mouseover", mouseover )
+      .on("mousemove", mousemove )
+      .on("mouseleave", mouseleave );
+    }
+}
+
+
+
 
 function lineButtons(div) {
 var margin = {top: 10, right: 30, bottom: 30, left: 60},

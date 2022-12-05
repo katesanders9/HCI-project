@@ -4,8 +4,8 @@ var text = [
     "description": "Introduction goes here."
   },
 	{
-    "title": "Graph A",
-    "description": "Description for graph A goes here."
+    "title": "Percent of persons receiving SNAP by region",
+    "description": "This graph shows the percentage of individuals in each CSA who are recipients of the Supplemental Nutrition Assistance Program (SNAP). SNAP is meant to provide food and nutrition security to households that are unable to economically sustain access to ample food supplies and is one of the most widely known social safety net programs that is used."
   }, {
     "title": "Graph B",
     "description": "Description for graph B goes here."
