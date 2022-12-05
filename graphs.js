@@ -1,7 +1,7 @@
 function barGraph(div, id) {
   // set the dimensions and margins of the graph
   var margin1 = {top: 30, right: 30, bottom: 70, left: 60},
-      width1 = 460 - margin1.left - margin1.right,
+      width1 = 1200 - margin1.left - margin1.right,
       height1 = 400 - margin1.top - margin1.bottom;
 
   // append the svg object to the body of the page
@@ -17,7 +17,7 @@ function barGraph(div, id) {
   // X axis
   var x1 = d3.scaleBand()
     .range([ 0, width1 ])
-    .domain(data1.map(function(d) { return d.group; }))
+    .domain(d18.map(function(d) { return d.group; }))
     .padding(0.2);
   svg1.append("g")
     .attr("transform", "translate(0," + height1 + ")")
@@ -60,6 +60,12 @@ function updateBar(data, t) {
       .attr("height", function(d) { return height - y(d.value); })
       .attr("fill", "#69b3a2")
       .attr("id",id)
+  svg.selectAll("text")
+    .attr("y", 0)
+    .attr("x", 9)
+    .attr("dy", ".35em")
+    .attr("transform", "rotate(90)")
+    .style("text-anchor", "start");
 }
 
 

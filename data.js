@@ -17,28 +17,92 @@ var data1 = [{
 {
     "group": "Other",
     "value": 6
-}];
+},
+{
+    "group": "A",
+    "value": 2.5
+},
+{
+    "group": "AB",
+    "value": 2.5
+},
+{
+    "group": "AC",
+    "value": 2.5
+},
+{
+    "group": "AD",
+    "value": 2.5
+},
+{
+    "group": "AE",
+    "value": 2.5
+},
+{
+    "group": "AF",
+    "value": 2.5
+},
+{
+    "group": "AG",
+    "value": 2.5
+},
+{
+    "group": "AH",
+    "value": 2.5
+},];
 
 var data2 = [{
     "group": "Black",
-    "value": 72.1
+    "value": 61.6
 },
 {
     "group": "White",
-    "value": 16.8
+    "value": 27.3
 },
 {
     "group": "Multiracial",
-    "value": 2
+    "value": 2.6
 },
 {
     "group": "Asian",
-    "value": 2
+    "value": 2.5
 },
 {
     "group": "Other",
-    "value": 7
-}];
+    "value": 6
+},
+{
+    "group": "A",
+    "value": 2.5
+},
+{
+    "group": "AB",
+    "value": 2.5
+},
+{
+    "group": "AC",
+    "value": 2.5
+},
+{
+    "group": "AD",
+    "value": 2.5
+},
+{
+    "group": "AE",
+    "value": 2.5
+},
+{
+    "group": "AF",
+    "value": 2.5
+},
+{
+    "group": "AG",
+    "value": 2.5
+},
+{
+    "group": "AH",
+    "value": 2.5
+},];
 
 
 // create 2 data_set

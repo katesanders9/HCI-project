@@ -7,6 +7,9 @@
 <script src="graphs.js"></script>
 <script src="data.js"></script>
 <script src="text.js"></script>
+<script src="18.js"></script>
+<script src="19.js"></script>
+<script src="20.js"></script>
 
 <style>
 	body {
@@ -90,6 +93,15 @@ rect.disabled {
 	<br>
 	<p id="asdf" style="text-align:center"></p>
 	<svg id="choroH" width="800" height="600"></svg>
+
+	<h3 id="title_E" style="text-align:center"></h3>
+	<p id="desc_E" style="text-align:center"></p>
+	<button onclick="updateBar(d18, barMetadata)">2018</button>
+	<button onclick="updateBar(d19, barMetadata)">2019</button>
+	<button onclick="updateBar(d20, barMetadata)">2020</button>
+	<div id="bar"></div>
+	<br><br><br>
+
 </div>
 	<div id="column1">
 	<h3>Pie chart with tooltips and check/uncheckable legend squares</h3>
@@ -114,12 +126,6 @@ rect.disabled {
 	<p id="desc_D" style="text-align:center"></p>
 	<div id="scatter"></div>
 </div><div id="column1">
-	<h3>Bar graph with multiple y-values</h3>
-	<h3 id="title_E" style="text-align:center"></h3>
-	<p id="desc_E" style="text-align:center"></p>
-	<button onclick="updateBar(data1, barMetadata)">% of Population</button>
-	<button onclick="updateBar(data2, barMetadata)">% of Pop. in Poverty</button>
-	<div id="bar"></div>
 	<h3>Scatterplot with tooltips</h3>
 	<h3 id="title_G" style="text-align:center"></h3>
 	<p id="desc_G" style="text-align:center"></p>
@@ -186,7 +192,7 @@ hist("#hist");
 scatterGroup("#scatter");
 
 var barMetadata = barGraph("#bar", "a");
-updateBar(data1, barMetadata);
+updateBar(d18, barMetadata);
 
 stackedBar("#stacked", "b");
 

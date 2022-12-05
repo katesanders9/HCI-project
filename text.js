@@ -19,8 +19,8 @@ var text = [
     "description": "Description for graph D goes here."
   },
   {
-    "title": "Graph E",
-    "description": "Data from datausa.io/profile/geo/baltimore-city-md"
+    "title": "Number of Overdose Calls for Service per 1,000 Residents",
+    "description": "This graph shows the number of 911 calls related to overdose during 2020. The data shows that 2020 saw an uptick in overdose incidents across the city in most CSAs, which can be attributed to the implications of the COVID-19 pandemic. Periods of social isolation, feelings of anxiety, and limited in-person resources and assistance have contributed to the rise in overdose and substance misuse incidents."
   },
   {
     "title": "2018 Life Expectancy by Region",
