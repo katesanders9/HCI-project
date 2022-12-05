@@ -503,7 +503,7 @@ var colorScale = d3.scaleThreshold()
 // Load external data and boot
 d3.queue()
   .defer(d3.json, "https://raw.githubusercontent.com/katesanders9/HCI-project/master/new.geojson")
-  .defer(d3.csv, "https://raw.githubusercontent.com/katesanders9/HCI-project/master/Life_Expectancy.csv", function(d) { data.set(d.OBJECTID, +d.lifexp11); })
+  .defer(d3.csv, "https://raw.githubusercontent.com/katesanders9/HCI-project/master/Life_Expectancy.csv", function(d) { data.set(d.OBJECTID, +d.lifexp18); })
   .await(ready);
 
 function ready(error, topo) {
@@ -511,49 +511,34 @@ function ready(error, topo) {
   var tooltip = d3.select("body")
     .append("div")
     .attr("class", "tooltip2")
-    .style("width", 200 +"px");
+    .style("width", 120 +"px");
   var area = d3.select("#asdf")
     .append("div")
-    .html("Hover over the map to see details")
+    .html("Location:")
     .style("font-weight", "normal");
 
     var mouseover = function(d) {
     tooltip
       .style('display', 'block');
-          d3.selectAll(".Country")
-      .transition()
-      .duration(200)
-      .style("opacity", .5);
-    d3.select(this)
-      .transition()
-      .duration(200)
-      .style("opacity", 1);
+
   }
 
     var mousemove = function(d) {
       area
-        .html(d.properties.CSA2010)
+        .html("Location: " + d.properties.CSA2010)
         .style("font-weight", "bold");
       tooltip
-          .html("Life expectancy: " + parseInt(data.get(d.id)))
+          .html(parseInt(data.get(d.id)) + " years")
           .style('top', (d3.event.layerY + 10) + 'px') // always 10px below the cursor
     .style('left', (d3.event.layerX + 10) + 'px'); // always 10px to the right of the mouse
     }
 
   var mouseleave = function(d) {
     area
-      .html("Hover over the map to see details")
+      .html("Location:")
       .style("font-weight", "normal");
       tooltip
         .style('display', 'none');
-            d3.selectAll(".Country")
-      .transition()
-      .duration(200)
-      .style("opacity", .8);
-    d3.select(this)
-      .transition()
-      .duration(200)
-      .style("stroke", "transparent");
   }
 
   // Draw the map
