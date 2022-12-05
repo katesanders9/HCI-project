@@ -605,7 +605,7 @@ function ready(error, topo) {
   var tooltip = d3.select("body")
     .append("div")
     .attr("class", "tooltip2")
-    .style("width", 120 +"px");
+    .style("width", 60 +"px");
   var area = d3.select("#asdfg")
     .append("div")
     .html("Location:")
@@ -622,7 +622,7 @@ function ready(error, topo) {
         .html("Location: " + d.properties.CSA2010)
         .style("font-weight", "bold");
       tooltip
-          .html(parseInt(data.get(d.id)) + " years")
+          .html(parseInt(data.get(d.id)) + "%")
           .style('top', (d3.event.layerY + 10) + 'px') // always 10px below the cursor
     .style('left', (d3.event.layerX + 10) + 'px'); // always 10px to the right of the mouse
     }
