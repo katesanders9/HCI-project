@@ -80,6 +80,54 @@ rect.disabled {
 	width:45%;
 	float:left;
 }
+
+button {
+  background-color: #008CBA; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+#titlediv {
+	background-color: #008CBA;
+	margin-top:-20px;
+	color: white;
+}
+
+#titlediv h3 {
+	color: skyblue;
+}
+
+#titlediv a {
+	color: skyblue;
+}
+
+p {
+	font-size: 18px;
+}
+
+h3 {
+	font-size: 30px;
+	color: #008CBA;
+}
+
+h2 {
+	color: #008CBA;
+}
+
+h4 {
+	font-size:25px;
+	color: #008CBA;
+}
+
+hr {
+	border: 1px solid skyblue;
+}
+
 </style>
 
 <head>
@@ -87,51 +135,63 @@ rect.disabled {
 </head>
 
 <body>
-	<h1 style="text-align:center">HCI Project 2: Design for Justice and Accessibility</h1>
-	<h3 style="text-align:center">Taryn Wong, Peter Novello, Yiyang Han, Kate Sanders</h3>
+	<div id="titlediv">
+		<br><br><br>
+	<h1 style="text-align:center;font-size:80px">Design for Justice and Accessibility</h1>
+	<h3 style="text-align:center;font-size:25px">Taryn Wong, Peter Novello, Yiyang Han, Kate Sanders</h3><br>
 		<div style="width:80%;margin-left:10%">
-	<p id="intro" style="text-align:center"></p>
+	<p id="intro" style="text-align:center;font-size:18px"></p><br><br>
 	<br>
+</div>
+</div>
+	<div style="width:80%;margin-left:10%">
+		<BR><BR>
 		<h3 id="title_C" style="text-align:center"></h3>
-	<p id="desc_C" style="text-align:center"></p>
-	<p id="asdfz" style="text-align:center"></p>
+	<p id="desc_C" style="text-align:center"></p><br>
 	<img src="holc-scan.jpeg" alt="Italian Trulli" style="width:790px;height:840px;position:absolute;z-index:-1">
 	<svg id="choroP" width="800" height="600" style="margin-top:180px;margin-left:20px"></svg>
-	<br><br><br><br><br>
+	<br><br><br><br>
+		<p id="asdfz" style="text-align:center"></p><br><br><br>
 	<p>Data from [1] Huang SJ, Sehgal NJ. Association of historic redlining and present-day health in Baltimore. PLoS One. 2022 Jan 19;17(1):e0261028. doi: 10.1371/journal.pone.0261028. PMID: 35045092; PMCID: PMC8769359.</p>
 	<br><br>
+	<hr>
 
-	<h2>By-region maps</h2>
+<br><br>
+	<h2>Regional Maps</h2><br>
 
 	<button onclick="toggle('B', 'X', 'H')">SNAP benefits</button>
 	<button onclick="toggle('H', 'X', 'B')">Life expectancy</button>
 	<button onclick="toggle('X', 'H', 'B')">Voting registration</button>
+	<br><br><br>
 
 
 	<div id="H" style="display:none;">
-	<h4 id="title_F" style="text-align:center"></h4>
+	<h4 id="title_F" style="text-align:center;display:none"></h4>
 	<p id="desc_F" style="text-align:center"></p>
 	<br>
-	<p id="asdf" style="text-align:center"></p>
 	<svg id="choroH" width="800" height="600"></svg>
+		<p id="asdf" style="text-align:center"></p>
 	</div>
 
 	<div id="X" style="display:none;">
-		<h4 id="title_D" style="text-align:center"></h4>
+		<h4 id="title_D" style="text-align:center;display:none"></h4>
 	<p id="desc_D" style="text-align:center"></p>
 	<br>
-	<p id="asdfgx" style="text-align:center"></p>
 	<svg id="choroX" width="1200" height="600"></svg>
+		<p id="asdfgx" style="text-align:center"></p>
 	</div>
 
 	<div id="B" style="display:block;">
-	<h4 id="title_A" style="text-align:center"></h4>
+	<h4 id="title_A" style="text-align:center;display:none"></h4>
 	<p id="desc_A" style="text-align:center"></p>
 	<br>
-	<p id="asdfg" style="text-align:center"></p>
 	<svg id="choroB" width="800" height="600"></svg>
+		<p id="asdfg" style="text-align:center"></p>
 	</div>
+	<br><br>
+	<hr>
 
+<br><br>
 	<h3 id="title_E" style="text-align:center"></h3>
 	<p id="desc_E" style="text-align:center"></p>
 	<p id="barExtra" style="text-align:center;font-weight:bold">Total: </p>
@@ -139,8 +199,11 @@ rect.disabled {
 	<button onclick="updateBar(d19, barMetadata, '2019')">2019</button>
 	<button onclick="updateBar(d20, barMetadata, '2020')">2020</button>
 	<div id="bar"></div>
-	<br><br><br>
 
+	<br><br>
+	<hr>
+
+<br><br>
 	<h3 id="title_B" style="text-align:center"></h3>
 	<p id="desc_B" style="text-align:center"></p>
 	<div style="width:50%;float:left">

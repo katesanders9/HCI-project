@@ -60,7 +60,7 @@ function updateBar(data, t, val) {
       .attr("y", function(d) { return y(d.value); })
       .attr("width", x.bandwidth())
       .attr("height", function(d) { return height - y(d.value); })
-      .attr("fill", "#69b3a2")
+      .attr("fill", "#008CBA")
       .attr("id",id)
   svg.selectAll("text")
     .attr("y", 0)
@@ -115,7 +115,7 @@ svg.selectAll("mybar")
     .attr("y", function(d) { return y(d.value); })
     .attr("width", x.bandwidth())
     .attr("height", function(d) { return height - y(d.value); })
-    .attr("fill", "#69b3a2")
+    .attr("fill", "#008CBA")
 
 })
 }
