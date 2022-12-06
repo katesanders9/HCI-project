@@ -12,7 +12,7 @@ var text = [
   },
   {
     "title": "1937 HOLC Redlining Map",
-    "description": 'Hover over different regions to see the grade given to different areas of Baltimore back in 1937. Additionally, each neighborhood received a description, which are shown above the map when hovering.<br><br>A = "Best", B = "Still desireable", C = "Declining", D = "Hazardous". '
+    "description": 'Hover over different regions to see the grade given to different areas of Baltimore back in 1937. Additionally, each neighborhood received a description, which are shown above the map when hovering.<br><br>A: "Best"<br>B: "Still desireable"<br>C: "Declining"<br>D: "Hazardous". '
   },
   {
     "title": "Percent of Population Registered to Vote in 2018",
@@ -20,7 +20,7 @@ var text = [
   },
   {
     "title": "Number of Overdose Calls for Service per 1,000 Residents",
-    "description": "The life expectancies of communities in Baltimore have a statistically significant negative correlation with the number of overdose incidents in the community, as communities that have higher rates of 911 calls related to drug overdose tend to have lower life expectancies, which is another public health disparity seen in Baltimore. Red = Life expectancy and Orange = rate of overdose calls."
+    "description": "The life expectancies of communities in Baltimore have a statistically significant negative correlation with the number of overdose incidents in the community, as communities that have higher rates of 911 calls related to drug overdose tend to have lower life expectancies, which is another public health disparity seen in Baltimore.<br>Red: Life expectancy<br>Orange: Rate of overdose calls."
   },
   {
     "title": "2018 - Life Expectancy by Region",
