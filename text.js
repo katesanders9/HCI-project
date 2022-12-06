@@ -1,7 +1,7 @@
 var text = [
 	{
     "title": "Introduction",
-    "description": "In the late 1930s, the Home Owners’ Loan Corporation (HOLC) drew investment “security” maps, marking areas by determined safety of investment. The “security” of these areas were determined by racial composition of inhabitants then color-coded, with red marking what were considered to be “hazardous” investments in majority Black neighborhoods. The impact of redlining is still seen today. Redlined areas have been shown to have a statistically significant association with CSA life expectancy and age-differentiated mortality. <a href='https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8769359/#:~:text=In%20the%201930s%2C%20the%20Home,a%20process%20known%20as%20redlining'>You can learn more about the history of redlining in Baltimore here.</a> Below are visualizations of the impact that redlining has on communities, specifically in the Baltimore area."
+    "description": "In the late 1930s, the Home Owners’ Loan Corporation (HOLC) drew investment “security” maps, marking areas by determined safety of investment. The “security” of these areas were determined by racial composition of inhabitants then color-coded, with red marking what were considered to be “hazardous” investments in majority Black neighborhoods. The impact of redlining is still seen today. Redlined areas have been shown to have a statistically significant association with CSA life expectancy and age-differentiated mortality.[1] Below are visualizations of the impact that redlining has on communities, specifically in the Baltimore area."
   },
 	{
     "title": "Percent of persons receiving SNAP by region",
@@ -20,7 +20,7 @@ var text = [
   },
   {
     "title": "Number of Overdose Calls for Service per 1,000 Residents",
-    "description": "This graph shows the number of 911 calls related to overdose during 2020. The data shows that 2020 saw an uptick in overdose incidents across the city in most CSAs, which can be attributed to the implications of the COVID-19 pandemic. Periods of social isolation, feelings of anxiety, and limited in-person resources and assistance have contributed to the rise in overdose and substance misuse incidents."
+    "description": "The life expectancies of communities in Baltimore have a statistically significant negative correlation with the number of overdose incidents in the community, as communities that have higher rates of 911 calls related to drug overdose tend to have lower life expectancies, which is another public health disparity seen in Baltimore. Red = Life expectancy and Orange = rate of overdose calls."
   },
   {
     "title": "2018 Life Expectancy by Region",

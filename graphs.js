@@ -203,6 +203,28 @@ var y = d3.scaleLinear()
 svg.append("g")
   .call(d3.axisLeft(y));
 
+    var tooltip = d3.select(div)
+      .append("div")
+      .attr("class", "tooltip2")
+      .style("width", 100 +"px");
+
+
+    // Three function that change the tooltip when user hover / move / leave a cell
+    var mouseover = function(d) {
+      tooltip
+          .html(parseInt(d.aa) + "% AA")
+          .style('display', 'block')
+    }
+    var mousemove = function(d) {
+      tooltip
+          .style('top', (d3.event.layerY + 10) + 'px') // always 10px below the cursor
+    .style('left', (d3.event.layerX + 10) + 'px'); // always 10px to the right of the mouse
+    }
+    var mouseleave = function(d) {
+      tooltip
+        .style('display', 'none')
+    }
+
 // Bars
 svg.selectAll("mybar")
   .data(data)
@@ -213,6 +235,9 @@ svg.selectAll("mybar")
     .attr("width", x.bandwidth())
     .attr("height", function(d) { return height - y(d.sw); })
     .attr("fill", "#008CBA")
+  .on("mouseover", mouseover)
+        .on("mousemove", mousemove)
+        .on("mouseleave", mouseleave)
 
 })
 }
@@ -1300,4 +1325,6 @@ d3.csv(da, function(data) {
     .style("text-anchor", "end");
 
 })
+
+
 }

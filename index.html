@@ -4,6 +4,7 @@
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
 <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="graphs.js"></script>
 <script src="data.js"></script>
 <script src="text.js"></script>
@@ -163,7 +164,6 @@ hr {
 	<svg id="choroP" width="800" height="600" style="margin-top:180px;margin-left:20px"></svg>
 	<br><br><br><br>
 		<p id="asdfz" style="text-align:center"></p><br><br><br>
-	<p>Data from [1] Huang SJ, Sehgal NJ. Association of historic redlining and present-day health in Baltimore. PLoS One. 2022 Jan 19;17(1):e0261028. doi: 10.1371/journal.pone.0261028. PMID: 35045092; PMCID: PMC8769359.</p>
 	<br><br>
 	<hr>
 
@@ -203,19 +203,26 @@ hr {
 	<hr>
 
 <br><br>
-	<h3 id="title_E" style="text-align:center"></h3>
-	<p id="desc_E" style="text-align:center"></p>
-	<p id="barExtra" style="text-align:center;font-weight:bold">Total: </p>
-	<button id='btnD' onclick="updateBar(d18, barMetadata, '2018'); tog('btnD');" disabled>2018</button>
-	<button id='btnE' onclick="updateBar(d19, barMetadata, '2019'); tog('btnE');">2019</button>
-	<button id='btnF' onclick="updateBar(d20, barMetadata, '2020'); tog('btnF');">2020</button>
-	<div id="bar"></div>
-
+<h3>Health Inequality</h3>
+	<button id='btnZ' onclick="toggle2('Z', 'Y', 'btnZ', 'btnY')" disabled>Street Cleanliness</button>
+	<button id='btnY' onclick="toggle2('Y', 'Z', 'btnY', 'btnZ')">Overdoses</button><br><br>
+<div id="Z" style="display:block">
+<h4>Rate of Dirty Streets and Alleys Reports per 1,000 Residents</h4>
+<p>The life expectancies of communities in Baltimore have a statistically significant negative correlation with the rate of dirty streets and alleys, as communities that are prone to greater garbage and waste disposal tend to expose residents to different environmental hazards that have contributed to lower life expectancies. Red = Life expectancy and Orange = rate of dirty streets</p>
+<div id="bar"></div>
 	<br><br>
 	<hr>
 
-<br><br>
-	<h3 id="title_B" style="text-align:center"></h3>
+<br><br></div>
+<div id="Y" style="display:none">
+	<h4 id="title_E" style="text-align:center"></h4>
+	<p id="desc_E" style="text-align:center"></p>
+	<div id="bar2"></div>
+	<br><br>
+	<hr>
+
+<br><br></div>
+<!--	<h3 id="title_B" style="text-align:center"></h3>
 	<p id="desc_B" style="text-align:center"></p>
 	<div style="width:50%;float:left">
 		<h4>Graph A: Total Trees Planted in Baltimore per Year</h4>
@@ -228,26 +235,36 @@ hr {
 	<br><br>
 	<hr>
 
-<br><br>
+<br><br>-->
 		<h3 id="title_H" style="text-align:center"></h3>
 	<p id="desc_H" style="text-align:center"></p><br><br>
 	<h4 style="text-align:center">% Students Chronically Absent by Education Level</h4>
+	<p>Red: % African American students<br>Orange: % students chronically absent in 1st - 5th grade<br>Green: % students chronically absent in 6th - 8th grade<br>Blue: % students chronically absent in 9th - 12th grade</p>
 	<div id="tree3"></div>
 	<h4 style="text-align:center">% Students Switching Schools</h4>
+	<p>Order of regions is same as in the previous graph. Hover over a bar to see the relevant demographic information present in the previous graph.</p>
 	<div id="tree4"></div>
-		<br><br>
+
 	<hr>
 
 <br><br>
 <h3 style="text-align:center">Economic Inequality</h3>
 <p style="text-align:center">Baltimore neighborhoods faces different economic conditions. Specifically, we focus on two aspects: the Percent of Households with No Internet at Home, and the number of Neighborhood Businesses per 1,000 Residents. We found for neighborhood with higher proportion of Afro-American residents, the level of economic activity characterized the two indicators above is lower. It is important to consider how to improve the economic wellbeing for Afro-American communities.<br></p>
-	<button id='btG' onclick="toggle2('gr1', 'gr2' 'btG')" disabled>Businesses</button>
-	<button id='btF' onclick="toggle2('gr2', 'gr1', 'btF')">Internet</button>
+<div id="V" style="display:block">
+<h4>Red: % AA residents, Orange: # of businesses per 1,000 residents</h4>
 <div id="gr1"></div>
-<div id="gr2" style="display:none;"></div>
-<br><br>
+</div>
+<div id="X">
+	<h4>Red: % AA residents, Orange: % homes without internet</h4>
+	<div id="gr2"></div>
+	<br><br>
+	<hr>
+
+<br><br></div>
 
 </div>
+<p style="text-align:left">[1] Huang SJ, Sehgal NJ. Association of historic redlining and present-day health in Baltimore. PLoS One. 2022 Jan 19;17(1):e0261028. doi: 10.1371/journal.pone.0261028. PMID: 35045092; PMCID: PMC8769359.<br>
+[2] Baltimore Neighborhood Indicators Alliance – Jacob France Institute. (2021). Vital Signs 19 [data file]. Retrieved from www.bniajfi.org/vital_signs</p>
 
 <!--
 	<div id="column1">
@@ -287,10 +304,10 @@ hr {
 	var content = document.getElementById("desc_A");
 	content.innerHTML = text[1].description;
 
-	var content = document.getElementById("title_B");
+/*	var content = document.getElementById("title_B");
 	content.innerHTML = text[2].title;
 	var content = document.getElementById("desc_B");
-	content.innerHTML = text[2].description;
+	content.innerHTML = text[2].description;*/
 
 	var content = document.getElementById("title_C");
 	content.innerHTML = text[3].title;
@@ -324,10 +341,10 @@ hr {
 
 //pieTool("#pieTool");
 
-treebar("#tree", "https://raw.githubusercontent.com/katesanders9/HCI-project/master/trees2.csv", 7000);
-treebar("#tree2", "https://raw.githubusercontent.com/katesanders9/HCI-project/master/dirty.csv", 100);
+/*treebar("#tree", "https://raw.githubusercontent.com/katesanders9/HCI-project/master/trees2.csv", 7000);
+treebar("#tree2", "https://raw.githubusercontent.com/katesanders9/HCI-project/master/dirty.csv", 100);*/
 groupBar("#tree3", "https://raw.githubusercontent.com/katesanders9/HCI-project/master/edu0.csv", 100);
-treebar3("#tree4", "https://raw.githubusercontent.com/katesanders9/HCI-project/master/t2.csv", 10);
+treebar3("#tree4", "https://raw.githubusercontent.com/katesanders9/HCI-project/master/edu1.csv", 8);
 
 //lineButtons("#line");
 
@@ -343,11 +360,10 @@ choroHover4("#choroX");
 
 //scatterGroup("#scatter");
 
-var barMetadata = barGraph("#bar", "a", d18);
-updateBar(d18, barMetadata, '2018');
-
 groupBar("#gr1", "https://raw.githubusercontent.com/katesanders9/HCI-project/main/econA.csv", 100);
 groupBar("#gr2", "https://raw.githubusercontent.com/katesanders9/HCI-project/main/econB.csv", 100);
+groupBar("#bar", "https://raw.githubusercontent.com/katesanders9/HCI-project/main/health0.csv", 90);
+groupBar("#bar2", "https://raw.githubusercontent.com/katesanders9/HCI-project/main/health1.csv", 150);
 
 //scatterH("#scatterH");
 
@@ -369,18 +385,16 @@ function toggle(div1, div2, div3, btn) {
 		d.disabled = true;
 }
 
-function toggle2(div1, div2, btn) {
+function toggle2(div1, div2, btn1, btn2) {
 	var z = document.getElementById(div1);
 	var c = document.getElementById(div2);
 		c.style.display = 'none';
 		z.style.display = 'block';
 
-	var d = document.getElementById('btG');
-	var e = document.getElementById('btF');
-		d.disabled = false;
+	var d = document.getElementById(btn1);
+	var e = document.getElementById(btn2);
 		e.disabled = false;
-	var q = document.getElementById(btn);
-		q.disabled = true;
+		d.disabled = true;
 }
 
 function tog(btn) {
