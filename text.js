@@ -19,7 +19,7 @@ var text = [
     "description": "This graph shows the percentage of persons over the age of 18 registered to vote out of all persons 18 years and over in each of the CSAs. It is important to consider this metric when it comes to sustainability since many elected leaders campaign on platforms promising changes meant to improve the environment and curb the effects of climate change."
   },
   {
-    "title": "2018 Number of Overdose Calls for Service per 1,000 Residents",
+    "title": "Number of Overdose Calls for Service per 1,000 Residents",
     "description": "The life expectancies of communities in Baltimore have a statistically significant negative correlation with the number of overdose incidents in the community, as communities that have higher rates of 911 calls related to drug overdose tend to have lower life expectancies, which is another public health disparity seen in Baltimore. Red = Life expectancy and Orange = rate of overdose calls."
   },
   {
