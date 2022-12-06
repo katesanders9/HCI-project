@@ -705,6 +705,96 @@ function ready(error, topo) {
     }
 }
 
+function choroHover3(div) {
+  var svg = d3.select(div),
+  width = +svg.attr("width"),
+  height = +svg.attr("height");
+
+// Map and projection
+var path = d3.geoPath();
+var projection = d3.geoMercator()
+  .scale(140000)
+  .center([-76.61,39.28])
+  .translate([width / 2, height / 2]);
+
+// Data and color scale
+var data = d3.map();
+var colorScale = d3.scaleThreshold()
+  .domain([ 30, 60, 90, 120])
+  .range(d3.schemeSpectral[5]);
+
+d3.imageload = function(src, cb) {
+    image = new Image();
+    image.src = src;
+    image.onload = function() { cb(null, image); };
+    image.onerror = cb;
+  }
+
+// Load external data and boot
+  d3.queue()
+  .defer(d3.json, "https://raw.githubusercontent.com/katesanders9/HCI-project/master/1937.geojson")
+  .await(ready);
+
+
+function ready(error, topo) {
+
+  var tooltip = d3.select("body")
+    .append("div")
+    .attr("class", "tooltip2")
+    .style("width", 100 +"px");
+  var area = d3.select("#asdfz")
+    .append("div")
+    .html("Location:")
+    .style("font-weight", "normal");
+
+    var mouseover = function(d) {
+    tooltip
+      .style('display', 'block');
+
+  }
+
+    var mousemove = function(d) {
+      area
+        .html("Location: " + d.properties.area_description_data)
+        .style("font-weight", "bold");
+      tooltip
+          .html("Grade: " + d.properties.holc_grade)
+          .style('top', (d3.event.layerY + 10) + 'px') // always 10px below the cursor
+    .style('left', (d3.event.layerX + 10) + 'px'); // always 10px to the right of the mouse
+    }
+
+  var mouseleave = function(d) {
+    area
+      .html("Location:")
+      .style("font-weight", "normal");
+      tooltip
+        .style('display', 'none');
+  }
+
+  // Draw the map
+  svg.append("g")
+    .selectAll("path")
+    .data(topo.features)
+    .enter()
+    .append("path")
+      // draw each country
+      .attr("d", d3.geoPath()
+        .projection(projection)
+      )
+      // set the color of each country
+      .attr("fill", function (d) {
+      d.total = d.properties.holc_grade == 'A' ? 100 : (d.properties.holc_grade == 'B' ? 70 : d.properties.holc_grade == 'C' ? 40 : 0);
+        return colorScale(d.total);
+      })
+      .style("stroke", "transparent")
+      .attr("class", function(d){ return "Country" } )
+      .style("opacity", .8)
+      .on("mouseover", mouseover )
+      .on("mousemove", mousemove )
+      .on("mouseleave", mouseleave );
+    }
+}
+
 
 
 
