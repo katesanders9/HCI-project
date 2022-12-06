@@ -15,8 +15,8 @@ var text = [
     "description": 'Hover over different regions to see the grade given to different areas of Baltimore back in 1937. A = "Best", B = "Still desireable", C = "Declining", and D = "Hazardous". Additionally, each neighborhood received a description, which are shown above the map when hovering.'
   },
   {
-    "title": "Graph D",
-    "description": "Description for graph D goes here."
+    "title": "Percent of Population Registered to Vote in 2018",
+    "description": "This graph shows the percentage of persons over the age of 18 registered to vote out of all persons 18 years and over in each of the CSAs. It is important to consider this metric when it comes to sustainability since many elected leaders campaign on platforms promising changes meant to improve the environment and curb the effects of climate change."
   },
   {
     "title": "Number of Overdose Calls for Service per 1,000 Residents",
