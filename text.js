@@ -11,8 +11,8 @@ var text = [
     "description": "Graph A measures the number of trees planted annually by the TreeBaltimore program. Graph B shows that the rate of service requests for dirty streets and alleys through Baltimore's 311 system per 1,000 residents. More than one service request may be made for the same issue but is logged as a unique request."
   },
   {
-    "title": "Graph C",
-    "description": "Description for graph C goes here."
+    "title": "1937 HOLC Redlining Map",
+    "description": 'Hover over different regions to see the grade given to different areas of Baltimore back in 1937. A = "Best", B = "Still desireable", C = "Declining", and D = "Hazardous". Additionally, each neighborhood received a description, which are shown above the map when hovering.'
   },
   {
     "title": "Graph D",

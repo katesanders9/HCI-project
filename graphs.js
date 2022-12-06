@@ -732,7 +732,7 @@ d3.imageload = function(src, cb) {
 
 // Load external data and boot
   d3.queue()
-  .defer(d3.json, "https://raw.githubusercontent.com/katesanders9/HCI-project/master/1937.geojson")
+  .defer(d3.json, "https://raw.githubusercontent.com/katesanders9/HCI-project/master/1937NEW.geojson")
   .await(ready);
 
 
@@ -744,7 +744,7 @@ function ready(error, topo) {
     .style("width", 100 +"px");
   var area = d3.select("#asdfz")
     .append("div")
-    .html("Location:")
+    .html("Area description: ")
     .style("font-weight", "normal");
 
     var mouseover = function(d) {
@@ -755,7 +755,7 @@ function ready(error, topo) {
 
     var mousemove = function(d) {
       area
-        .html("Location: " + d.properties.area_description_data)
+        .html("Area description: " + d.properties.desc)
         .style("font-weight", "bold");
       tooltip
           .html("Grade: " + d.properties.holc_grade)
@@ -765,7 +765,7 @@ function ready(error, topo) {
 
   var mouseleave = function(d) {
     area
-      .html("Location:")
+      .html("Area description: ")
       .style("font-weight", "normal");
       tooltip
         .style('display', 'none');
