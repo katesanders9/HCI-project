@@ -1,0 +1,2 @@
+data = '[{"section" : "graph_A", "description" : "Description for graph_A goes here."},
+		{"section" : "graph_B", "description" : "Description for graph_B goes here."}]';

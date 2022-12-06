@@ -4,7 +4,7 @@ var text = [
     "description": "In the late 1930s, the Home Owners’ Loan Corporation (HOLC) drew investment “security” maps, marking areas by determined safety of investment. The “security” of these areas were determined by racial composition of inhabitants then color-coded, with red marking what were considered to be “hazardous” investments in majority Black neighborhoods. The impact of redlining is still seen today. Redlined areas have been shown to have a statistically significant association with CSA life expectancy and age-differentiated mortality.[1] Below are visualizations of the impact that redlining has on communities, specifically in the Baltimore area."
   },
 	{
-    "title": "Percent of persons receiving SNAP by region",
+    "title": "2020 - Percent of persons receiving SNAP by region",
     "description": "This graph shows the percentage of individuals in each CSA who are recipients of the Supplemental Nutrition Assistance Program (SNAP). SNAP is meant to provide food and nutrition security to households that are unable to economically sustain access to ample food supplies and is one of the most widely known social safety net programs that is used."
   }, {
     "title": "Living Conditions",
@@ -19,11 +19,11 @@ var text = [
     "description": "This graph shows the percentage of persons over the age of 18 registered to vote out of all persons 18 years and over in each of the CSAs. It is important to consider this metric when it comes to sustainability since many elected leaders campaign on platforms promising changes meant to improve the environment and curb the effects of climate change."
   },
   {
-    "title": "Number of Overdose Calls for Service per 1,000 Residents",
+    "title": "2018 Number of Overdose Calls for Service per 1,000 Residents",
     "description": "The life expectancies of communities in Baltimore have a statistically significant negative correlation with the number of overdose incidents in the community, as communities that have higher rates of 911 calls related to drug overdose tend to have lower life expectancies, which is another public health disparity seen in Baltimore. Red = Life expectancy and Orange = rate of overdose calls."
   },
   {
-    "title": "2018 Life Expectancy by Region",
+    "title": "2018 - Life Expectancy by Region",
     "description": "This graph demonstrates the differences in life expectancy for individuals born in Baltimore by Community Statistical Area, as of 2018. The stark differences in life expectancy across the different neighborhoods and zip codes of the city signify the inequitable distribution of healthcare resources and outcomes caused by differences in the built environment, as well as social and economic forces. Much of the data provided here suggests that redlining is still a prevalent problem today. Hover over different areas of the map to see individual data points by region."
   },
   {
@@ -31,7 +31,7 @@ var text = [
     "description": "Description for graph G goes here."
   },
   {
-    "title": "Education Inequality",
+    "title": "2019 Education Inequality",
     "description": "Support and stability in education is incredibly important for a students’ learning. Due to systemic disparities in resource allocation, however, students attending Baltimore City Public Schools in areas with high percentages of African American students are statistically more likely to switch schools and be chronically absent."
   },
   ]
