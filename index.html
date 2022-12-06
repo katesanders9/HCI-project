@@ -168,7 +168,7 @@ hr {
 	<hr>
 
 <br><br>
-	<h2>Regional Maps</h2><br>
+	<h2>Examples of Current Region-based Inequality in Baltimore</h2><br>
 
 	<button id='btnA' onclick="toggle('B', 'X', 'H', 'btnA')" disabled>SNAP benefits</button>
 	<button id='btnB' onclick="toggle('H', 'X', 'B', 'btnB')">Life expectancy</button>
@@ -231,12 +231,24 @@ hr {
 <br><br>
 		<h3 id="title_H" style="text-align:center"></h3>
 	<p id="desc_H" style="text-align:center"></p><br><br>
-	<p style="text-align:center">% African American Students by Region</p>
+	<h4 style="text-align:center">% African American Students by Region</h4>
 	<div id="tree3"></div>
-	<p style="text-align:center">% Students Chronically Absent by Education Level</p>
+	<h4 style="text-align:center">% Students Chronically Absent by Education Level</h4>
 	<div id="stacked"></div>
-	<p style="text-align:center">% Students Switching Schools</p>
+	<h4 style="text-align:center">% Students Switching Schools</h4>
 	<div id="tree4"></div>
+		<br><br>
+	<hr>
+
+<br><br>
+<h3 style="text-align:center">Economic Inequality</h3>
+<p style="text-align:center">Baltimore neighborhoods faces different economic conditions. Specifically, we focus on two aspects: the Percent of Households with No Internet at Home, and the number of Neighborhood Businesses per 1,000 Residents. We found for neighborhood with higher proportion of Afro-American residents, the level of economic activity characterized the two indicators above is lower. It is important to consider how to improve the economic wellbeing for Afro-American communities.<br></p>
+	<button id='btG' onclick="toggle2('gr1', 'gr2' 'btG')" disabled>Businesses</button>
+	<button id='btF' onclick="toggle2('gr2', 'gr1', 'btF')">Internet</button>
+<div id="gr1"></div>
+<div id="gr2" style="display:none;"></div>
+<br><br>
+
 </div>
 
 <!--
@@ -338,6 +350,9 @@ updateBar(d18, barMetadata, '2018');
 
 stackedBar("#stacked", "b");
 
+groupBar("#gr1", "https://raw.githubusercontent.com/katesanders9/HCI-project/main/econA.csv");
+groupBar("#gr2", "https://raw.githubusercontent.com/katesanders9/HCI-project/main/econB.csv");
+
 //scatterH("#scatterH");
 
 function toggle(div1, div2, div3, btn) {
@@ -356,6 +371,20 @@ function toggle(div1, div2, div3, btn) {
 		f.disabled = false;
 	var d = document.getElementById(btn);
 		d.disabled = true;
+}
+
+function toggle2(div1, div2, btn) {
+	var z = document.getElementById(div1);
+	var c = document.getElementById(div2);
+		c.style.display = 'none';
+		z.style.display = 'block';
+
+	var d = document.getElementById('btG');
+	var e = document.getElementById('btF');
+		d.disabled = false;
+		e.disabled = false;
+	var q = document.getElementById(btn);
+		q.disabled = true;
 }
 
 function tog(btn) {
