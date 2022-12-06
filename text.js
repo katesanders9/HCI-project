@@ -12,7 +12,7 @@ var text = [
   },
   {
     "title": "1937 HOLC Redlining Map",
-    "description": 'Hover over different regions to see the grade given to different areas of Baltimore back in 1937. Additionally, each neighborhood received a description, which are shown above the map when hovering.<br><br>A: "Best"<br>B: "Still desireable"<br>C: "Declining"<br>D: "Hazardous". '
+    "description": 'Hover over different regions to see the grade given to different areas of Baltimore back in 1937. Additionally, each neighborhood received a description, which are shown above the map when hovering.<br><br>A: "Best"<br>B: "Still desireable"<br>C: "Declining"<br>D: "Hazardous"'
   },
   {
     "title": "Percent of Population Registered to Vote in 2018",
