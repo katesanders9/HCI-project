@@ -108,6 +108,17 @@ rect.disabled {
 	<p id="asdfg" style="text-align:center"></p>
 	<svg id="choroB" width="800" height="600"></svg>
 
+	<h3 id="title_B" style="text-align:center"></h3>
+	<p id="desc_B" style="text-align:center"></p>
+	<div style="width:45%;float:left">
+		<h4>Graph A</h4>
+	<div id="tree"></div>
+</div>
+<div style="width:45%;float:right">
+	<h4>Graph B</h4>
+	<div id="tree2"></div>
+</div>
+
 </div>
 	<div id="column1">
 	<h3>Pie chart with tooltips and check/uncheckable legend squares</h3>
@@ -189,6 +200,9 @@ rect.disabled {
 
 pieTool("#pieTool");
 
+treebar("#tree", "https://raw.githubusercontent.com/katesanders9/HCI-project/master/trees2.csv", 7000);
+treebar("#tree2", "https://raw.githubusercontent.com/katesanders9/HCI-project/master/dirty.csv", 100);
+
 lineButtons("#line");
 
 choroHover("#choroH");
@@ -199,12 +213,25 @@ hist("#hist");
 
 scatterGroup("#scatter");
 
-var barMetadata = barGraph("#bar", "a");
+var barMetadata = barGraph("#bar", "a", d18);
 updateBar(d18, barMetadata, '2018');
 
 stackedBar("#stacked", "b");
 
 scatterH("#scatterH");
+
+function toggle(div1, div2) {
+	var d = document.getElementById(div1);
+	var e = document.getElementById(div2);
+	if (d.style.display == 'none') {
+		d.style.display = 'block';
+		e.style.display = 'none';
+	} else {
+		d.style.display = 'none';
+		e.style.display = 'block';
+	}
+}
+
 </script>
 
 </html>

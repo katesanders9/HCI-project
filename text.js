@@ -7,8 +7,8 @@ var text = [
     "title": "Percent of persons receiving SNAP by region",
     "description": "This graph shows the percentage of individuals in each CSA who are recipients of the Supplemental Nutrition Assistance Program (SNAP). SNAP is meant to provide food and nutrition security to households that are unable to economically sustain access to ample food supplies and is one of the most widely known social safety net programs that is used."
   }, {
-    "title": "Graph B",
-    "description": "Description for graph B goes here."
+    "title": "Living Conditions",
+    "description": "Graph A measures the number of trees planted annually by the TreeBaltimore program. Graph B shows that the rate of service requests for dirty streets and alleys through Baltimore's 311 system per 1,000 residents. More than one service request may be made for the same issue but is logged as a unique request."
   },
   {
     "title": "Graph C",
