@@ -1,7 +1,7 @@
 var text = [
 	{
     "title": "Introduction",
-    "description": "Introduction goes here."
+    "description": "In the late 1930s, the Home Owners’ Loan Corporation (HOLC) drew investment “security” maps, marking areas by determined safety of investment. The “security” of these areas were determined by racial composition of inhabitants then color-coded, with red marking what were considered to be “hazardous” investments in majority Black neighborhoods. The impact of redlining is still seen today. Redlined areas have been shown to have a statistically significant association with CSA life expectancy and age-differentiated mortality. <a href='https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8769359/#:~:text=In%20the%201930s%2C%20the%20Home,a%20process%20known%20as%20redlining'>You can learn more about the history of redlining in Baltimore here.</a> Below are visualizations of the impact that redlining has on communities, specifically in the Baltimore area."
   },
 	{
     "title": "Percent of persons receiving SNAP by region",
