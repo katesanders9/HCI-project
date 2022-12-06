@@ -92,6 +92,17 @@ button {
   font-size: 16px;
 }
 
+button:disabled {
+  background-color: skyblue; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
 #titlediv {
 	background-color: #008CBA;
 	margin-top:-20px;
@@ -137,7 +148,7 @@ hr {
 <body>
 	<div id="titlediv">
 		<br><br><br>
-	<h1 style="text-align:center;font-size:80px">Design for Justice and Accessibility</h1>
+	<h1 style="text-align:center;font-size:60px">The Effect of Historic Redlining on Present-Day Baltimoreans</h1>
 	<h3 style="text-align:center;font-size:25px">Taryn Wong, Peter Novello, Yiyang Han, Kate Sanders</h3><br>
 		<div style="width:80%;margin-left:10%">
 	<p id="intro" style="text-align:center;font-size:18px"></p><br><br>
@@ -159,9 +170,9 @@ hr {
 <br><br>
 	<h2>Regional Maps</h2><br>
 
-	<button onclick="toggle('B', 'X', 'H')">SNAP benefits</button>
-	<button onclick="toggle('H', 'X', 'B')">Life expectancy</button>
-	<button onclick="toggle('X', 'H', 'B')">Voting registration</button>
+	<button id='btnA' onclick="toggle('B', 'X', 'H', 'btnA')" disabled>SNAP benefits</button>
+	<button id='btnB' onclick="toggle('H', 'X', 'B', 'btnB')">Life expectancy</button>
+	<button id='btnC' onclick="toggle('X', 'H', 'B', 'btnC')">Voting registration</button>
 	<br><br><br>
 
 
@@ -195,9 +206,9 @@ hr {
 	<h3 id="title_E" style="text-align:center"></h3>
 	<p id="desc_E" style="text-align:center"></p>
 	<p id="barExtra" style="text-align:center;font-weight:bold">Total: </p>
-	<button onclick="updateBar(d18, barMetadata, '2018')">2018</button>
-	<button onclick="updateBar(d19, barMetadata, '2019')">2019</button>
-	<button onclick="updateBar(d20, barMetadata, '2020')">2020</button>
+	<button id='btnD' onclick="updateBar(d18, barMetadata, '2018'); tog('btnD');" disabled>2018</button>
+	<button id='btnE' onclick="updateBar(d19, barMetadata, '2019'); tog('btnE');">2019</button>
+	<button id='btnF' onclick="updateBar(d20, barMetadata, '2020'); tog('btnF');">2020</button>
 	<div id="bar"></div>
 
 	<br><br>
@@ -214,9 +225,18 @@ hr {
 	<h4>Graph B: Average Service Request Rates per Year</h4>
 	<div id="tree2"></div>
 </div>
-<div style="width:80%;margin-left:10%">
-	<br><br><br>
-</div>
+	<br><br>
+	<hr>
+
+<br><br>
+		<h3 id="title_H" style="text-align:center"></h3>
+	<p id="desc_H" style="text-align:center"></p><br><br>
+	<p style="text-align:center">% African American Students by Region</p>
+	<div id="tree3"></div>
+	<p style="text-align:center">% Students Chronically Absent by Education Level</p>
+	<div id="stacked"></div>
+	<p style="text-align:center">% Students Switching Schools</p>
+	<div id="tree4"></div>
 </div>
 
 <!--
@@ -285,17 +305,19 @@ hr {
 /*	var content = document.getElementById("title_G");
 	content.innerHTML = text[7].title;
 	var content = document.getElementById("desc_G");
-	content.innerHTML = text[7].description;
+	content.innerHTML = text[7].description;*/
 
 	var content = document.getElementById("title_H");
 	content.innerHTML = text[8].title;
 	var content = document.getElementById("desc_H");
-	content.innerHTML = text[8].description;*/
+	content.innerHTML = text[8].description;
 
 //pieTool("#pieTool");
 
 treebar("#tree", "https://raw.githubusercontent.com/katesanders9/HCI-project/master/trees2.csv", 7000);
 treebar("#tree2", "https://raw.githubusercontent.com/katesanders9/HCI-project/master/dirty.csv", 100);
+treebar2("#tree3", "https://raw.githubusercontent.com/katesanders9/HCI-project/master/t0.csv", 100);
+treebar3("#tree4", "https://raw.githubusercontent.com/katesanders9/HCI-project/master/t2.csv", 8);
 
 //lineButtons("#line");
 
@@ -314,19 +336,39 @@ choroHover4("#choroX");
 var barMetadata = barGraph("#bar", "a", d18);
 updateBar(d18, barMetadata, '2018');
 
-//stackedBar("#stacked", "b");
+stackedBar("#stacked", "b");
 
 //scatterH("#scatterH");
 
-function toggle(div1, div2, div3) {
+function toggle(div1, div2, div3, btn) {
 	var d = document.getElementById(div1);
 	var e = document.getElementById(div2);
 	var f = document.getElementById(div3);
 		e.style.display = 'none';
 		f.style.display = 'none';
 		d.style.display = 'block';
-	}
 
+	var d = document.getElementById('btnA');
+	var e = document.getElementById('btnB');
+	var f = document.getElementById('btnC');
+		d.disabled = false;
+		e.disabled = false;
+		f.disabled = false;
+	var d = document.getElementById(btn);
+		d.disabled = true;
+}
+
+function tog(btn) {
+
+	var d = document.getElementById('btnD');
+	var e = document.getElementById('btnE');
+	var f = document.getElementById('btnF');
+		d.disabled = false;
+		e.disabled = false;
+		f.disabled = false;
+	var d = document.getElementById(btn);
+		d.disabled = true;
+}
 </script>
 
 </html>

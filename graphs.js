@@ -25,7 +25,7 @@ function barGraph(div, id, data) {
 
   // Add Y axis
   var y1 = d3.scaleLinear()
-    .domain([0, 75])
+    .domain([0, 60])
     .range([ height1, 0]);
   svg1.append("g")
     .attr("class", "myYaxis")
@@ -63,11 +63,8 @@ function updateBar(data, t, val) {
       .attr("fill", "#008CBA")
       .attr("id",id)
   svg.selectAll("text")
-    .attr("y", 0)
-    .attr("x", 9)
-    .attr("dy", ".35em")
-    .attr("transform", "rotate(90)")
-    .style("text-anchor", "start");
+    .attr("transform", "translate(-10,0)rotate(-45)")
+    .style("text-anchor", "end");
 }
 
 function treebar(div, file, val) {
@@ -120,12 +117,111 @@ svg.selectAll("mybar")
 })
 }
 
+function treebar2(div, file, val) {
+  var margin = {top: 30, right: 30, bottom: 200, left: 60},
+    width = 1200 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+// append the svg object to the body of the page
+var svg = d3.select(div)
+  .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+
+// Parse the Data
+d3.csv(file, function(data) {
+
+// X axis
+var x = d3.scaleBand()
+  .range([ 0, width ])
+  .domain(data.map(function(d) { return d.CSA2010; }))
+  .padding(0.2);
+svg.append("g")
+  .attr("transform", "translate(0," + height + ")")
+  .call(d3.axisBottom(x))
+  .selectAll("text")
+    .attr("transform", "translate(-10,0)rotate(-45)")
+    .style("text-anchor", "end");
+
+// Add Y axis
+var y = d3.scaleLinear()
+  .domain([0, val])
+  .range([ height, 0]);
+svg.append("g")
+  .call(d3.axisLeft(y));
+
+// Bars
+svg.selectAll("mybar")
+  .data(data)
+  .enter()
+  .append("rect")
+    .attr("x", function(d) { return x(d.CSA2010); })
+    .attr("y", function(d) { return y(d.aa); })
+    .attr("width", x.bandwidth())
+    .attr("height", function(d) { return height - y(d.aa); })
+    .attr("fill", "#008CBA")
+
+})
+}
+
+function treebar3(div, file, val) {
+  var margin = {top: 30, right: 30, bottom: 200, left: 60},
+    width = 1200 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+// append the svg object to the body of the page
+var svg = d3.select(div)
+  .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+
+// Parse the Data
+d3.csv(file, function(data) {
+
+// X axis
+var x = d3.scaleBand()
+  .range([ 0, width ])
+  .domain(data.map(function(d) { return d.CSA2010; }))
+  .padding(0.2);
+svg.append("g")
+  .attr("transform", "translate(0," + height + ")")
+  .call(d3.axisBottom(x))
+  .selectAll("text")
+    .attr("transform", "translate(-10,0)rotate(-45)")
+    .style("text-anchor", "end");
+
+// Add Y axis
+var y = d3.scaleLinear()
+  .domain([0, val])
+  .range([ height, 0]);
+svg.append("g")
+  .call(d3.axisLeft(y));
+
+// Bars
+svg.selectAll("mybar")
+  .data(data)
+  .enter()
+  .append("rect")
+    .attr("x", function(d) { return x(d.CSA2010); })
+    .attr("y", function(d) { return y(d.sw); })
+    .attr("width", x.bandwidth())
+    .attr("height", function(d) { return height - y(d.sw); })
+    .attr("fill", "#008CBA")
+
+})
+}
 
 function stackedBar(div, id) {
   // set the dimensions and margins of the graph
-  var margin = {top: 10, right: 30, bottom: 20, left: 50},
-      width = 460 - margin.left - margin.right,
-      height = 400 - margin.top - margin.bottom;
+  var margin = {top: 10, right: 30, bottom: 200, left: 50},
+      width = 1200 - margin.left - margin.right,
+      height = 500 - margin.top - margin.bottom;
 
   // append the svg object to the body of the page
   var svg = d3.select(div)
@@ -138,13 +234,13 @@ function stackedBar(div, id) {
       .attr("id",id);
 
   // Parse the Data
-  d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/data_stacked.csv", function(data) {
+  d3.csv("https://raw.githubusercontent.com/katesanders9/HCI-project/master/t1.csv", function(data) {
 
     // List of subgroups = header of the csv files = soil condition here
     var subgroups = data.columns.slice(1)
 
     // List of groups = species here = value of the first column called group -> I show them on the X axis
-    var groups = d3.map(data, function(d){return(d.group)}).keys()
+    var groups = d3.map(data, function(d){return(d.CSA2010)}).keys()
 
     // Add X axis
     var x = d3.scaleBand()
@@ -157,7 +253,7 @@ function stackedBar(div, id) {
 
     // Add Y axis
     var y = d3.scaleLinear()
-      .domain([0, 60])
+      .domain([0, 160])
       .range([ height, 0 ]);
     svg.append("g")
       .call(d3.axisLeft(y));
@@ -175,6 +271,7 @@ function stackedBar(div, id) {
     var tooltip = d3.select(div)
       .append("div")
       .attr("class", "tooltip2")
+      .style("width", 150 +"px");
 
 
     // Three function that change the tooltip when user hover / move / leave a cell
@@ -182,7 +279,7 @@ function stackedBar(div, id) {
       var subgroupName = d3.select(this.parentNode).datum().key;
       var subgroupValue = d.data[subgroupName];
       tooltip
-          .html("subgroup: " + subgroupName + "<br>" + "Value: " + subgroupValue)
+          .html("Age: " + subgroupName + "<br>" + "Value: " + parseInt(subgroupValue))
           .style('display', 'block')
     }
     var mousemove = function(d) {
@@ -205,7 +302,7 @@ function stackedBar(div, id) {
         // enter a second time = loop subgroup per subgroup to add all rectangles
         .data(function(d) { return d; })
         .enter().append("rect")
-          .attr("x", function(d) { return x(d.data.group); })
+          .attr("x", function(d) { return x(d.data.CSA2010); })
           .attr("y", function(d) { return y(d[1]); })
           .attr("height", function(d) { return y(d[0]) - y(d[1]); })
           .attr("width",x.bandwidth())
@@ -213,6 +310,9 @@ function stackedBar(div, id) {
         .on("mouseover", mouseover)
         .on("mousemove", mousemove)
         .on("mouseleave", mouseleave)
+          svg.selectAll("text")
+     .attr("transform", "translate(-10,0)rotate(-45)")
+    .style("text-anchor", "end");
 
   })
 }
@@ -788,7 +888,7 @@ function ready(error, topo) {
       })
       .style("stroke", "transparent")
       .attr("class", function(d){ return "Country" } )
-      .style("opacity", .8)
+      .style("opacity", .4)
       .on("mouseover", mouseover )
       .on("mousemove", mousemove )
       .on("mouseleave", mouseleave );

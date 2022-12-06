@@ -31,7 +31,7 @@ var text = [
     "description": "Description for graph G goes here."
   },
   {
-    "title": "Graph H",
-    "description": "Description for graph H goes here."
+    "title": "Education Inequality",
+    "description": "Support and stability in education is incredibly important for a students’ learning. Due to systemic disparities in resource allocation, however, students attending Baltimore City Public Schools in areas with high percentages of African American students are statistically more likely to switch schools and be chronically absent."
   },
   ]
