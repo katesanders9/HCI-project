@@ -231,10 +231,8 @@ hr {
 <br><br>
 		<h3 id="title_H" style="text-align:center"></h3>
 	<p id="desc_H" style="text-align:center"></p><br><br>
-	<h4 style="text-align:center">% African American Students by Region</h4>
-	<div id="tree3"></div>
 	<h4 style="text-align:center">% Students Chronically Absent by Education Level</h4>
-	<div id="stacked"></div>
+	<div id="tree3"></div>
 	<h4 style="text-align:center">% Students Switching Schools</h4>
 	<div id="tree4"></div>
 		<br><br>
@@ -328,8 +326,8 @@ hr {
 
 treebar("#tree", "https://raw.githubusercontent.com/katesanders9/HCI-project/master/trees2.csv", 7000);
 treebar("#tree2", "https://raw.githubusercontent.com/katesanders9/HCI-project/master/dirty.csv", 100);
-treebar2("#tree3", "https://raw.githubusercontent.com/katesanders9/HCI-project/master/t0.csv", 100);
-treebar3("#tree4", "https://raw.githubusercontent.com/katesanders9/HCI-project/master/t2.csv", 8);
+groupBar("#tree3", "https://raw.githubusercontent.com/katesanders9/HCI-project/master/edu0.csv", 100);
+treebar3("#tree4", "https://raw.githubusercontent.com/katesanders9/HCI-project/master/t2.csv", 10);
 
 //lineButtons("#line");
 
@@ -348,10 +346,8 @@ choroHover4("#choroX");
 var barMetadata = barGraph("#bar", "a", d18);
 updateBar(d18, barMetadata, '2018');
 
-stackedBar("#stacked", "b");
-
-groupBar("#gr1", "https://raw.githubusercontent.com/katesanders9/HCI-project/main/econA.csv");
-groupBar("#gr2", "https://raw.githubusercontent.com/katesanders9/HCI-project/main/econB.csv");
+groupBar("#gr1", "https://raw.githubusercontent.com/katesanders9/HCI-project/main/econA.csv", 100);
+groupBar("#gr2", "https://raw.githubusercontent.com/katesanders9/HCI-project/main/econB.csv", 100);
 
 //scatterH("#scatterH");
 

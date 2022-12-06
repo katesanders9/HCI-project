@@ -1229,7 +1229,7 @@ legend.append('text')
 
 
 
-function groupBar(div, da) {
+function groupBar(div, da, top) {
 var margin = {top: 10, right: 30, bottom: 200, left: 50},
     width = 1200 - margin.left - margin.right,
     height = 400 - margin.top - margin.bottom;
@@ -1263,7 +1263,7 @@ d3.csv(da, function(data) {
 
   // Add Y axis
   var y = d3.scaleLinear()
-    .domain([0, 100])
+    .domain([0, top])
     .range([ height, 0 ]);
   svg.append("g")
     .call(d3.axisLeft(y));
@@ -1277,7 +1277,7 @@ d3.csv(da, function(data) {
   // color palette = one color per subgroup
   var color = d3.scaleOrdinal()
     .domain(subgroups)
-    .range(['#e41a1c','#377eb8','#4daf4a'])
+  .range(d3.schemeSpectral[4]);
 
   // Show the bars
   svg.append("g")
